@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev --poll src/index.ts",
-    "serve": "node build/src/index.js",
+    "serve": "node build/index.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
