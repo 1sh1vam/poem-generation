@@ -12,7 +12,7 @@ const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 const io = new Server(server, {
     cors: {
-        origin: process.env.ORIGIN_HOST,
+        origin: "*",
         methods: ['GET', 'POST']
     }
 });
