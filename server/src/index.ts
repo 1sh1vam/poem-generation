@@ -6,6 +6,7 @@ import { analyzeEmotionsUsingLexicon } from "./services/emotions";
 
 const server = createServer();
 
+const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
@@ -54,7 +55,7 @@ io.on("connection", (socket) => {
 });
 
 const start = () => {
-  server.listen(3000, () => {
+  server.listen(PORT, () => {
     console.log("Listening on port number 3000");
   });
 };
