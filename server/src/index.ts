@@ -24,6 +24,11 @@ io.on("connection", (socket) => {
   socket.on("prompt", async (prompt) => {
     try {
       if (!prompt) return;
+      if (!OPENAI_API_KEY) {
+        socket.emit("prompt-response", 'The OpenAI key is missing. Kindly reach out to the developer for assistance.');
+        socket.emit('response-completed', {});
+        return
+      }
       const stream = await openai.chat.completions.create({
         model: "gpt-3.5-turbo-1106",
         stream: true,
